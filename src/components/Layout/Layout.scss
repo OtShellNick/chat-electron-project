@@ -1,0 +1,10 @@
+.layout {
+  display: grid;
+  grid-template-columns: 50px auto;
+  height: 100vh;
+
+  & main {
+    display: grid;
+    grid-auto-rows: 50px auto;
+  }
+}

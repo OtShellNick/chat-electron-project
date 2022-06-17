@@ -1,0 +1,14 @@
+@import "@styles/main.scss";
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+  background-color: $main-bg-color;
+  border-bottom: 1px solid $main-border-color;
+
+  &__heading {
+    font-weight: 500;
+  }
+}

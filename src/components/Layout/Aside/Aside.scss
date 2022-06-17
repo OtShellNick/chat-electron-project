@@ -1,0 +1,24 @@
+@import '@styles/main.scss';
+
+.aside {
+  border-right: 1px solid $main-border-color;
+  background-color: $main-bg-color;
+
+  &__avatar {
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid $main-border-color;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+
+    &__item {
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+  }
+}
