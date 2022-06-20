@@ -6,6 +6,7 @@
   "scripts": {
     "watch": "cross-env NODE_ENV=development webpack-dev-server --mode development",
     "build": "cross-env NODE_ENV=production webpack",
+    "start": "node ./server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,10 +26,12 @@
     "@mui/material": "^5.8.4",
     "@reduxjs/toolkit": "^1.8.2",
     "axios": "^0.27.2",
+    "connect": "^3.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.2",
-    "react-router-dom": "^6.3.0"
+    "react-router-dom": "^6.3.0",
+    "serve-static": "^1.15.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.17.12",
