@@ -4,4 +4,4 @@ const path = require('path');
 
 connect()
     .use(serveStatic(path.resolve(__dirname, './build')))
-    .listen(8080, () => console.log('Server running on 8080...'));
+    .listen(80, () => console.log('Server running on 8080...'));
