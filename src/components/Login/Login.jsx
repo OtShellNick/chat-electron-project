@@ -8,7 +8,7 @@ const Login = () => <div>
 &scope=channel_details_self+channel_update_self+user_details_self
 +channel_subscriptions+chat_send_self
 +chat_connect+send_to_my_channel+manage_messages
-&redirect_uri=http://192.168.31.37:8088/
+&redirect_uri=https://trovo-bot-front.herokuapp.com/
 &state=myntgbdrfsed`}>
         Войти
     </a>
