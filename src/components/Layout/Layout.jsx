@@ -8,8 +8,7 @@ import Header from "@components/Layout/Header/Header";
 import Aside from "@components/Layout/Aside/Aside";
 
 import {loginUser} from '@store/userStore/userStore';
-import {getSelf, login} from "@/requests/user";
-import {saveSettings} from "@helpers/saveSettings";
+import {getSelf, login, refreshToken} from "@/requests/user";
 
 import './Layout.scss';
 
@@ -26,7 +25,6 @@ const Layout = () => {
             login(searchParams).then((user) => {
                 dispatch(loginUser(user));
                 CookieHelper.set('authorization', user.jwt);
-                saveSettings('jwt', user.jwt);
                 navigate('/');
             });
         }
@@ -39,9 +37,18 @@ const Layout = () => {
             });
         }
 
-        if(user && location.pathname === '/login') navigate('/');
+        if(user.id && location.pathname === '/login') navigate('/');
     }, [searchParams, user]);
 
+    useEffect(() => {
+        if(auth) {
+            setInterval(() => {
+                refreshToken(auth).then((user) => {
+                    dispatch(loginUser(user));
+                })
+            }, 1000 * 60 * 60 * 2);
+        }
+    }, [auth])
 
     return <div className='layout'>
         <Aside user={user}/>

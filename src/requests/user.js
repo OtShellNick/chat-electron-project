@@ -1,10 +1,9 @@
 import { Server } from '@helpers/server'
 import {checkAuth} from "@helpers/checkAuth";
 import * as CookieHelper from '@helpers/cookie';
-import {deleteSetting} from "@helpers/saveSettings";
 
-export const getSelf = () => {
-  return Server('get', 'user/v1/user/me')
+export const getSelf = (access_token) => {
+  return Server('get', 'user/v1/user/me', {access_token})
       .catch(checkAuth)
 }
 
@@ -14,6 +13,10 @@ export const login = (authCode) => {
 
 export const logout = () => {
   CookieHelper.del('authorization');
-  deleteSetting('jwt');
   location.replace('/login');
+}
+
+export const refreshToken = (jwt) => {
+  return Server('post', 'user/v1/user/refresh', {access_token: jwt})
+      .catch(checkAuth);
 }

@@ -1,12 +1,11 @@
 {
   "name": "chat-electron-project",
   "version": "1.0.0",
-  "description": "",
+  "description": "test",
   "main": "main.js",
   "scripts": {
     "watch": "cross-env NODE_ENV=development webpack-dev-server --mode development",
-    "dev": "concurrently -k \"npm:watch\" \"npm:electron\"",
-    "electron": "wait-on http://localhost:8088 && electron .",
+    "build": "cross-env NODE_ENV=production webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -14,17 +13,18 @@
     "url": "git+https://github.com/OtShellNick/chat-electron-project.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "otshellnick",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/OtShellNick/chat-electron-project/issues"
   },
   "homepage": "https://github.com/OtShellNick/chat-electron-project#readme",
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/material": "^5.8.4",
     "@reduxjs/toolkit": "^1.8.2",
     "axios": "^0.27.2",
-    "electron": "^19.0.4",
-    "electron-store": "^8.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.2",
@@ -43,8 +43,6 @@
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "dotenv": "^16.0.1",
-    "electron-devtools-installer": "^3.2.0",
-    "electron-is-dev": "^2.0.0",
     "eslint-loader": "^4.0.2",
     "favicons-webpack-plugin": "^5.0.2",
     "html-webpack-plugin": "^5.5.0",

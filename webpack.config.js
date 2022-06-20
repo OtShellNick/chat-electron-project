@@ -87,7 +87,7 @@ module.exports = {
             '@config': path.resolve(__dirname, './src/config'),
             '@assets': path.resolve(__dirname, './src/assets'),
             '@styles': path.resolve(__dirname, './src/styles'),
-            // '@containers': path.resolve(__dirname, './src/containers'),
+            '@containers': path.resolve(__dirname, './src/containers'),
             '@helpers': path.resolve(__dirname, './src/helpers'),
             '@requests': path.resolve(__dirname, './src/requests'),
             '@store': path.resolve(__dirname, './src/store'),
@@ -97,12 +97,8 @@ module.exports = {
     entry: ['@babel/polyfill', path.resolve(__dirname, './src/index.jsx')],
     output: {
         path: path.resolve(__dirname, './build'),
-        publicPath: '/',
+        // publicPath: './',
         filename: '[name].bundle.js'
-    },
-    devtool: 'source-map',
-    optimization: {
-        runtimeChunk: 'single'
     },
     module: {
         rules: [

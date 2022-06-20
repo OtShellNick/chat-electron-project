@@ -10,6 +10,13 @@ export const Server = (
   url,
   data
 ) => {
+  if(method === 'get') {
+    data = {
+      params: {
+        data
+      }
+    }
+  }
   return axios[method](`${server}${url}`, data).then((resp) => {
     if (resp.status === 200) return resp.data
   })
