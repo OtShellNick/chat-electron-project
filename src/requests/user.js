@@ -12,8 +12,10 @@ export const login = (authCode) => {
 };
 
 export const logout = () => {
-  CookieHelper.del('authorization');
-  location.replace('/login');
+  return Server('post', 'v1/auth/logout').then(() => {
+    CookieHelper.del('authorization');
+    location.replace('/login');
+  });
 }
 
 export const refreshToken = (jwt) => {
