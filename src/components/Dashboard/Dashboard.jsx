@@ -8,12 +8,14 @@ const Dashboard = () => {
     const [settings, setSettings] = useState({});
 
     useEffect(() => {
-       if(!settings.id) getSettings().then(resp => setSettings(resp));
+       if(!settings.id) getSettings()
+           .then(setSettings);
     }, [settings]);
 
     return <div className='dashboard'>
         <CustomSwitch checked={settings.botOn} on='Включить бота' off='Выключить бота' onChange={({target}) => {
-            updateSettings({botOn: target.checked});
+            updateSettings({botOn: target.checked})
+                .then(setSettings);
         }}/>
     </div>
 }
