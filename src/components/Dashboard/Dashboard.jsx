@@ -1,30 +1,19 @@
 import React, {useEffect, useState} from "react";
-import * as CookieHelper from '@helpers/cookie';
 import CustomSwitch from "@containers/Switch/Switch";
 
 import './Dashboard.scss';
-import {connectToChat} from "@requests/chat";
-import {getSettings} from "@requests/settings";
+import {getSettings, updateSettings} from "@requests/settings";
 
 const Dashboard = () => {
-    const auth = CookieHelper.get('authorization');
-    const [close, setClose] = useState(null);
-    const [checked, setChecked] = useState(false);
+    const [settings, setSettings] = useState({});
 
     useEffect(() => {
-       getSettings();
-    });
+       if(!settings.id) getSettings().then(resp => setSettings(resp));
+    }, [settings]);
 
     return <div className='dashboard'>
-        <CustomSwitch checked={checked} on='Включить бота' off='Выключить бота' onChange={({target}) => {
-            if(target.checked) {
-                const closeChat = connectToChat(auth);
-                setClose(closeChat);
-            } else {
-                close();
-            }
-
-            setChecked(target.checked);
+        <CustomSwitch checked={settings.botOn} on='Включить бота' off='Выключить бота' onChange={({target}) => {
+            updateSettings({botOn: target.checked});
         }}/>
     </div>
 }

@@ -46,7 +46,7 @@ const CustomSwitch = ({checked, on, off, onChange}) => {
 
     return <Stack direction="row" spacing={1} alignItems="center">
         <Typography>{off}</Typography>
-        <AntSwitch checked={checked} inputProps={{ 'aria-label': 'ant design' }} onChange={onChange} />
+        <AntSwitch checked={checked} defaultChecked={false} inputProps={{ 'aria-label': 'ant design' }} onChange={onChange} />
         <Typography>{on}</Typography>
     </Stack>
 };
