@@ -21,6 +21,16 @@ const App = () => {
     const {user} = useSelector((state) => state.user);
 
     useEffect(() => {
+        if(!auth && !searchParams && location.pathname !== '/login') navigate('/login');
+
+        if(auth && !searchParams && location.pathname !== '/login' && !user.id) {
+            getSelf().then((user) => {
+                dispatch(loginUser(user));
+            });
+        }
+
+        if(auth && !searchParams && location.pathname === '/login') navigate('/');
+
         if (searchParams) {
             login(searchParams).then((user) => {
                 dispatch(loginUser(user));
@@ -28,16 +38,6 @@ const App = () => {
                 navigate('/');
             });
         }
-
-        if(!searchParams && !auth && location.pathname !== '/login') navigate('/login');
-
-        if (!user.id && location.pathname !== '/login') {
-            getSelf().then((user) => {
-                dispatch(loginUser(user));
-            });
-        }
-
-        if(user.id && location.pathname === '/login') navigate('/');
     }, [searchParams, user, auth]);
 
     return <Routes>
