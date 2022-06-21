@@ -11,8 +11,8 @@ export const login = (authCode) => {
   return Server('post', 'v1/auth/login', {authCode});
 };
 
-export const logout = () => {
-  return Server('post', 'v1/auth/logout').then(() => {
+export const logout = (jwt) => {
+  return Server('post', 'v1/auth/logout', {jwt}).then(() => {
     CookieHelper.del('authorization');
     location.replace('/login');
   });
