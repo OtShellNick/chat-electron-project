@@ -31,7 +31,7 @@ const App = () => {
 
         if(!searchParams && !auth && location.pathname !== '/login') navigate('/login');
 
-        if (!user.id) {
+        if (!user.id && location.pathname !== '/login') {
             getSelf().then((user) => {
                 dispatch(loginUser(user));
             });
