@@ -31,7 +31,7 @@ const App = () => {
 
         if(auth && !searchParams && location.pathname === '/login') navigate('/');
 
-        if (searchParams) {
+        if (!auth && !user.id && searchParams) {
             login(searchParams).then((user) => {
                 dispatch(loginUser(user));
                 CookieHelper.set('authorization', user.jwt);
