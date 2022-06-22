@@ -75,6 +75,7 @@ const plugins = () => [
     }),
     new webpack.DefinePlugin({
         'CLIENT_ID': `'${CLIENT_ID}'`,
+        'MODE': `'${NODE_ENV}'`,
     }),
 ]
 

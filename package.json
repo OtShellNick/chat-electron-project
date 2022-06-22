@@ -4,7 +4,8 @@
   "description": "test",
   "main": "main.js",
   "scripts": {
-    "watch": "cross-env NODE_ENV=development webpack-dev-server --mode development",
+    "watch:dev": "cross-env NODE_ENV=development webpack-dev-server --mode development",
+    "watch:prod": "cross-env NODE_ENV=production webpack-dev-server --mode development",
     "build": "cross-env NODE_ENV=production webpack",
     "start": "node ./server.js",
     "test": "echo \"Error: no test specified\" && exit 1"

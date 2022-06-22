@@ -1,7 +1,7 @@
 export const CONFIG = {
   production: {
-    REST: 'https://trovo-bot-server.herokuapp.com/',
-    SOCKET: 'wss://trovo-bot-server.herokuapp.com/'
+    REST: 'https://mmochat.online/trovo/',
+    SOCKET: 'wss://mmochat.online/trovo/'
   },
   development: {
     REST: 'http://localhost:4112/',
