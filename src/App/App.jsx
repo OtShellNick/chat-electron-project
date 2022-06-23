@@ -9,6 +9,7 @@ import Layout from '@components/Layout/Layout';
 
 const Login = lazy(() => import('@components/Login/Login'));
 const Dashboard = lazy(() => import('@components/Dashboard/Dashboard'));
+const Bot = lazy(() => import('@components/Bot/Bot'));
 
 import '@styles/main.scss';
 
@@ -43,6 +44,7 @@ const App = () => {
     return <Routes>
         <Route path='/' element={<Layout/>}>
             <Route index element={<Dashboard/>}/>
+            <Route path='bot' element={<Bot/>}/>
         </Route>
         <Route path='/login' element={<Login/>}/>
     </Routes>

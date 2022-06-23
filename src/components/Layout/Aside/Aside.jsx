@@ -1,5 +1,7 @@
 import React from "react";
 
+import Menu from '@components/Layout/Aside/Menu/Menu';
+
 import './Aside.scss';
 
 import LogoutIcon from '@assets/logout.svg?jsx';
@@ -12,6 +14,7 @@ const Aside = ({user}) => {
             <li className='aside__list__item'>
                 <img className='aside__avatar' src={profilePic} alt="logo"/>
             </li>
+            <Menu/>
             <li className='aside__list__item' onClick={() => {
                 logout(jwt);
             }}>
